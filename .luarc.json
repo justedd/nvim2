@@ -1,0 +1,14 @@
+{
+    "diagnostics": {
+        "enable": true,
+        "globals": [
+            "vim",
+            "lsp"
+        ],
+        "neededFileStatus": {
+            "codestyle-check": "Any"
+        }
+    },
+    "misc.parameters": [ "--loglevel=trace" ],
+    "telemetry.enable": false
+}
