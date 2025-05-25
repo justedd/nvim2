@@ -69,6 +69,14 @@ end
 vim.keymap.set("n", "<leader>rr", OpenRangerFloating, { noremap = true, silent = true, desc = "Open Ranger in current file directory" })
 
 
+vim.keymap.set("n", "<leader>c", function()
+  local filepath = vim.fn.expand("%") -- относительный путь от cwd
+  local linenr = vim.fn.line(".") -- текущая строка
+  local cmd = string.format("cursor . --goto %s:%d", filepath, linenr)
+  vim.fn.jobstart(cmd, { detach = true })
+end, { noremap = true, silent = true })
+
+
 require('elements.telescope')
 require('elements.indent_line')
 require('elements.statusline')

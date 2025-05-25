@@ -139,8 +139,10 @@ nnoremap <A-,> :cprev <cr>zz
 nnoremap H :call mappings#cycle_highlight() <CR>
 
 "TODO: add ale mappings
-"nnoremap <silent> <c-k> <plug>(ale_previous_wrap)
-"nnoremap <silent> <c-j> <plug>(ale_next_wrap)
+"nnoremap <silent> <c-K> <plug>(ale_previous_wrap)
+"nnoremap <silent> <c-J> <plug>(ale_next_wrap)
+
+nnoremap <leader>j <Plug>(ale_next_wrap)
 
 xnoremap <Leader>yy "+y
 nmap <leader>yn :let @"=expand("%:t")<CR>
