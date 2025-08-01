@@ -58,6 +58,15 @@ require("lazy").setup({
         { 'tpope/vim-rails' },
         { 'mxw/vim-jsx' },
         { 'posva/vim-vue' },
+        {
+            "iamcco/markdown-preview.nvim",
+            cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+            build = "cd app && yarn install",
+            init = function()
+                vim.g.mkdp_filetypes = { "markdown" }
+            end,
+            ft = { "markdown" },
+        },
         { 'ekalinin/Dockerfile.vim' },
         {
             "ray-x/go.nvim",

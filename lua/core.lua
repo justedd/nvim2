@@ -76,6 +76,19 @@ vim.keymap.set("n", "<leader>rc", function()
   vim.fn.jobstart(cmd, { detach = true })
 end, { noremap = true, silent = true })
 
+vim.keymap.set("n", "gx", function()
+    local line = vim.api.nvim_get_current_line()
+    -- Ищем URL без захвата лишнего мусора вроде ')', ']', '"' на конце
+    local url = string.match(line, "(https?://[%w%-%._~:/%?#%[%]@!$&'()*+,;=%%]+)")
+    if url then
+        -- Убираем закрывающую скобку, если она примыкает
+        url = url:gsub("[%)%]%\"]$", "")
+        vim.fn.jobstart({ "open", url }, { detach = true })  -- macOS
+    else
+        print("❌ No valid URL found in line")
+    end
+end, { noremap = true, desc = "Open cleaned-up URL in browser" })
+
 
 require('elements.telescope')
 require('elements.indent_line')

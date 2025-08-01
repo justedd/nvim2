@@ -70,11 +70,11 @@ set signcolumn=yes
 " bling/vim-airline' {{{
 set laststatus=2
 " autozimu/LanguageClient-neovim {{{
-let g:LanguageClient_autoStop = 0
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['solargraph', 'stdio']
-    "\ 'ruby': ['ruby-lsp']
-    \ }
+"let g:LanguageClient_autoStop = 0
+"let g:LanguageClient_serverCommands = {
+    "\ 'ruby': ['solargraph', 'stdio']
+    ""\ 'ruby': ['ruby-lsp']
+    "\ }
 " }}}
 " vim-scropts/vim-autosave {{{
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -215,6 +215,9 @@ nnoremap <silent><Leader>ma :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><Leader>mm :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <silent><C-j> :lua require("harpoon.ui").nav_next()<cr>
 nnoremap <silent><C-k> :lua require("harpoon.ui").nav_prev()<cr>
+
+" disable markdown plugin cursor open mapping
+map <Plug> <Plug>Markdown_OpenUrlUnderCursor
 
 " Always refresh indentlines after folding
 "nmap <silent>zo zo:IndentBlanklineRefresh<cr>

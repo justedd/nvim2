@@ -29,15 +29,17 @@ require('lspconfig').ruby_lsp.setup {
 --
 --vim.lsp.enable('ruby_lsp')
 require('lspconfig').ruby_lsp.setup {
-    handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = false,
-                signs = false,
-                underline = false
-            }
-        )
-    },
+    --on_attach = function(client, bufnr)
+        ---- Отключаем отображение диагностик (виртуальный текст, знаки, подчеркивание)
+        ----vim.diagnostic.disable(bufnr)
+        ----vim.diagnostic.config({
+            ----virtual_text = false,
+            ----signs = true,
+            ----underline = false,
+            ----update_in_insert = false,
+            ----severity_sort = false,
+        ----}, bufnr)
+    --end
 }
 
 --require('lspconfig').solargraph.setup {
