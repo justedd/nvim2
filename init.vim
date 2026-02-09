@@ -213,6 +213,7 @@ nnoremap <Leader>ga :Git blame<cr>
 
 nnoremap <silent><Leader>ma :lua require("harpoon.mark").add_file()<cr>
 nnoremap <silent><Leader>mm :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <silent><Leader>mh :Telescope harpoon marks<cr>
 nnoremap <silent><C-j> :lua require("harpoon.ui").nav_next()<cr>
 nnoremap <silent><C-k> :lua require("harpoon.ui").nav_prev()<cr>
 

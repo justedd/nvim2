@@ -28,19 +28,20 @@ require('lspconfig').ruby_lsp.setup {
 --]]
 --
 --vim.lsp.enable('ruby_lsp')
-require('lspconfig').ruby_lsp.setup {
-    --on_attach = function(client, bufnr)
-        ---- Отключаем отображение диагностик (виртуальный текст, знаки, подчеркивание)
-        ----vim.diagnostic.disable(bufnr)
-        ----vim.diagnostic.config({
-            ----virtual_text = false,
-            ----signs = true,
-            ----underline = false,
-            ----update_in_insert = false,
-            ----severity_sort = false,
-        ----}, bufnr)
-    --end
-}
+
+
+
+--require('lspconfig').ruby_lsp.setup({
+  --cmd = vim.lsp.rpc.connect("127.0.0.1", 9911),
+--})
+
+--require('lspconfig').ruby_lsp.setup({
+    --cmd = { "/Users/justed/projects/kuper/storefront/lsp.sh" },
+--})
+
+
+
+require('lspconfig').ruby_lsp.setup {}
 
 --require('lspconfig').solargraph.setup {
     --handlers = {

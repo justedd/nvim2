@@ -64,6 +64,10 @@ require("lazy").setup({
             build = "cd app && yarn install",
             init = function()
                 vim.g.mkdp_filetypes = { "markdown" }
+                vim.g.mkdp_preview_options = {
+                    uml = { server = "https://plantuml-server.sbmt.io/" }
+                    --https://www.plantuml.com/plantuml
+                }
             end,
             ft = { "markdown" },
         },
@@ -81,6 +85,23 @@ require("lazy").setup({
             event = { "CmdlineEnter" },
             ft = { "go", 'gomod' },
             build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+        },
+
+        {
+            'stevearc/conform.nvim',
+            config = function()
+                require("conform").setup({
+                    -- Map your filetypes to formatters here
+                    formatters_by_ft = {
+                        ruby = { "rubocop" }, -- Use RuboCop directly for Ruby
+                        lua = { "stylua" },
+                        python = { "isort", "black" },
+                        -- ...add additional filetypes as needed
+                    },
+                    -- Do NOT enable autoformat on save
+                    format_on_save = false,
+                })
+            end,
         },
 
 
@@ -108,7 +129,7 @@ require("lazy").setup({
 
         { 'saadparwaiz1/cmp_luasnip' },
 
-        { 'tpope/vim-projectionist' },
+        --{ 'tpope/vim-projectionist' },
 
         -- git plugins
         { 'tpope/vim-fugitive' },

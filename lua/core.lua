@@ -90,6 +90,21 @@ vim.keymap.set("n", "gx", function()
 end, { noremap = true, desc = "Open cleaned-up URL in browser" })
 
 
+vim.keymap.set("v", "<leader>ff", function()
+  -- Get current visual selection range
+  local start = vim.fn.getpos("'<")
+  local end_ = vim.fn.getpos("'>")
+  -- Lua-indexed, convert to {row, col}, columns are 0-indexed
+  require("conform").format({
+    range = {
+      start = { start[2], start[3] - 1 },
+      ["end"] = { end_[2], end_[3] - 1 },
+    },
+    lsp_format = "fallback",
+  })
+end, { desc = "Format selection with Conform" })
+
+
 require('elements.telescope')
 require('elements.indent_line')
 require('elements.statusline')
